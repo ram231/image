@@ -48,7 +48,7 @@ class BitmapFont {
     fnt = fnt.trimLeft();
 
     if (fnt.startsWith('<?xml') || fnt.startsWith('<font>')) {
-      doc = parse(fnt);
+      doc = XmlDocument.parse(fnt);
       if (doc == null) {
         throw ImageException('Invalid font XML');
       }
@@ -83,7 +83,7 @@ class BitmapFont {
 
     /// Added <?xml which may be present, appropriately
     if (font_str.startsWith('<?xml') || font_str.startsWith('<font>')) {
-      xml = parse(font_str);
+      xml = XmlDocument.parse(font_str);
       if (xml == null) {
         throw ImageException('Invalid font XML');
       }
@@ -280,7 +280,7 @@ class BitmapFont {
 
     var lines = <String>[];
     lines = content.split('\r\n');
-    if(lines.length <= 1) {
+    if (lines.length <= 1) {
       lines = content.split('\n');
     }
 
